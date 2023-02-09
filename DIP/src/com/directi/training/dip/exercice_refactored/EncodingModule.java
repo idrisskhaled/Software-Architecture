@@ -1,17 +1,12 @@
-package com.directi.training.dip.exercise;
+package com.directi.training.dip.exercice_refactored;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URL;
 import java.util.Base64;
 
 public class EncodingModule
 {
+    private IMyDatabase myDatabase;
 
     public void encodeWithFiles() throws IOException
     {
@@ -53,8 +48,7 @@ public class EncodingModule
         }
         String inputString = inputString1.toString();
         String encodedString = Base64.getEncoder().encodeToString(inputString.getBytes());
-        MyDatabase myDatabase = new MyDatabase();
-        myDatabase.write(encodedString);
+        this.myDatabase.write(encodedString);
     }
 }
 
